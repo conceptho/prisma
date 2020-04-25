@@ -1,0 +1,17 @@
+version: '3'
+services:
+  prisma:
+    build: .
+    ports:
+      - '3333:3333'
+    environment:
+      PRISMA_DB_CONNECTOR: mysql
+      PRISMA_DB_HOST: mysql
+      PRISMA_DB_PORT: 3306
+      PRISMA_DB_USER: root
+      PRISMA_DB_PASSWORD: prisma
+      PRISMA_PORT: 3333
+  mysql:
+    image: mysql:5.7.22
+    environment:
+      MYSQL_ROOT_PASSWORD: prisma
